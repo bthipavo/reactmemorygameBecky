@@ -13,6 +13,9 @@ const PhotoGrid = () => {
 
     const [cards, setCards] = useState(cardsData)
 
+    console.log('cardsData', cardsData)
+
+
     const cardClicked = event => {
         console.log('card clicked: ', event.target); //loging the photo info clicked
 
@@ -26,10 +29,11 @@ const PhotoGrid = () => {
     const shufflePhotoDisplay = () => {
         const shuffle = require('shuffle-array'), 
             collection = cards;
-        shuffle(cards);
+       // const cards2 = shuffle(cards, { 'copy': true });
         console.log("cards", cards);
+       // console.log("cards", cards2);
         console.log(cards.length)
-        setCards([...cards, shuffle(cards)])
+        setCards(shuffle(cards, { 'copy': true }))
     }
 
     return (
